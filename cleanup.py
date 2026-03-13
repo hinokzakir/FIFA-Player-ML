@@ -11,5 +11,8 @@ df = pd.read_csv(input_csv)
 # Keep only the specified columns
 df_filtered = df[columns_to_keep]
 
+# remove rows with only "GK" as position
+df_filtered = df_filtered[df_filtered['player_positions'] != 'GK']
+
 # Save the filtered DataFrame to a new CSV
 df_filtered.to_csv(output_csv, index=False)
